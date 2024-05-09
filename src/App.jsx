@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
 
+// const Paragraph = (props) => {
+//   return <p>{props.age}</p>
+// }
+// function App() {
+//   return <div>
+//     <Paragraph age={10}/>
+//     <Paragraph age={100}/>
+//   </div>
+// }
+
+const Card=(props)=>{
+  return <div>
+    <h2>Name: {props.name}</h2>
+    <hr />
+    <div>
+      <p>Email: {props.email}</p>
+      <p>Phone: {props.phone}</p>
+      <p>Description: {props.description}</p>
+    </div>
+  </div>
+}
+
+function App(){
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <Card name='Tania' email='lala@gmail.com' phone={123} />
+
+      <Card name='Vlad' email='lala@gmail.com' phone={123} />
+    </div>
   )
 }
 
 export default App
+
