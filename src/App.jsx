@@ -1,4 +1,5 @@
-import './App.css'
+import Card from './components/Card'
+import users from './data.json'
 
 
 // const Paragraph = (props) => {
@@ -11,24 +12,16 @@ import './App.css'
 //   </div>
 // }
 
-const Card=(props)=>{
-  return <div>
-    <h2>Name: {props.name}</h2>
-    <hr />
-    <div>
-      <p>Email: {props.email}</p>
-      <p>Phone: {props.phone}</p>
-      <p>Description: {props.description}</p>
-    </div>
-  </div>
-}
+
 
 function App(){
   return (
     <div>
-      <Card name='Tania' email='lala@gmail.com' phone={123} />
-
-      <Card name='Vlad' email='lala@gmail.com' phone={123} />
+      {users.map((user)=>{
+        return <Card key={user.id} name={user.name} phone={user.phone}/>
+      })}
+      <Card name='Alex' email='alex@gmail.com' phone={98745632}/>
+    
     </div>
   )
 }
