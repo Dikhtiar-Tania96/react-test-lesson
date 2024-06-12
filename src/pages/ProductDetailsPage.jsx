@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import { getSingleProductApi } from "../products-api";
 
 const ProductDetailsPage = () => {
@@ -19,18 +19,24 @@ const ProductDetailsPage = () => {
       } finally {
         setLoading(false);
       }
-    }
-    getData()
+    };
+    getData();
   }, [productId]);
 
-
   return (
-    <div>{product && 
-            <div>
-              <h4>price: {product.price}</h4>
-              <h4>title: {product.title}</h4>
-            </div>}
-            </div>
+    <div>
+      {product && (
+        <div>
+          <h4>price: {product.price}</h4>
+          <h4>title: {product.title}</h4>
+        </div>
+      )}
+      <nav>
+        <Link to='sub-product-a'>sub-product-a</Link>
+        <Link to='sub-product-b'>sub-product-b</Link>
+      </nav>
+      <Outlet/>
+    </div>
   );
 };
 
