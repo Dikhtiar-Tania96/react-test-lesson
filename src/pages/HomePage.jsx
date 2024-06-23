@@ -1,28 +1,38 @@
-import { useDispatch, useSelector } from "react-redux"
-import { actionDeposit, actionWithdraw } from "../store/store"
+import { useDispatch, useSelector } from "react-redux";
+import { actionDeposit, actionWithdraw } from "../store/balanceSlice";
+import { useState } from "react";
 
 const HomePage = () => {
-const balanceValue = useSelector((state)=> state.balance.value)
-const dispatch = useDispatch()
+  const balanceValue = useSelector((state) => state.balance.value);
+  const dispatch = useDispatch();
+  const [value, setValue] = useState(0);
 
+  const handleDeposit = () => {
+    dispatch(actionDeposit(value));
+  };
 
-const handleDeposit = () => {
-  dispatch(actionDeposit(100))
-}
-
-const handleWithdraw = () => {
-  dispatch(actionWithdraw(10))
-}
+  const handleWithdraw = () => {
+    dispatch(actionWithdraw(value));
+  };
 
   return (
-    <div>HomePage
-      <hr/>
+    <div>
+      HomePage
+      <hr />
       Balance: {balanceValue}
-      <hr/>
+      <hr />
+      <input
+        type="number"
+        value={value}
+        onChange={({target:{value}}) => {
+          setValue(Number(value));
+        }}
+      />
+      <hr />
       <button onClick={handleDeposit}>Deposit</button>
       <button onClick={handleWithdraw}>Withdraw</button>
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
