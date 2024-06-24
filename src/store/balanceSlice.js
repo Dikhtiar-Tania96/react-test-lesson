@@ -1,8 +1,13 @@
-export const actionDeposit = (value) => ({
-    type: "balance/deposit",
-    payload: value,
-  });
-  
+import { createAction } from "@reduxjs/toolkit";
+
+// export const actionDeposit = (value) => ({
+//     type: "balance/deposit",
+//     payload: value,
+//   });
+export const actionDeposit = createAction('balance/deposit');
+
+
+
   export const actionWithdraw = (value) => ({
     type: "balance/withdraw",
     payload: value,
@@ -16,7 +21,7 @@ export const actionDeposit = (value) => ({
     action
   ) => {
     switch (action.type) {
-      case "balance/deposit":
+      case actionDeposit.type:
         return {
           ...state,
           value: state.value + action.payload,
