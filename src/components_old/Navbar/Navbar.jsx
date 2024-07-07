@@ -12,9 +12,6 @@ const Navbar = () => {
       <NavLink className={getClassNames} to="/">
         Home
       </NavLink>
-      <NavLink className={getClassNames} to="/products">
-        Products
-      </NavLink>
     </nav>
   );
 };

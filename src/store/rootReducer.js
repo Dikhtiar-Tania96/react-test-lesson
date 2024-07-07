@@ -1,7 +1,7 @@
-import { balanceReducer } from "./balanceSlice";
-import { itemsReducer } from "./itemsSlice";
+import { authReducer } from "./auth/authSlice";
+import { tasksReducer } from "./tasks/tasksSlice";
 
 export const rootReducer = {
-  balance: balanceReducer,
-  items: itemsReducer,
-};
+    auth: authReducer,
+    tasks: tasksReducer
+}
